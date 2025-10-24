@@ -4,6 +4,7 @@ import { LoginPage } from "../pages/LoginPage.js";
 import { LandingPage } from "../pages/LandingPage.js";
 import { HTMLPlaygroundPage } from "../pages/HTMLPlaygroundPage.js";
 import { HTMLPlaygroundAPIMockPage } from "../pages/HTMLPlaygroundAPIMockPage.js";
+import { APIUserService } from "../pages/APIUserService.js";
 import { attachScreenshotOnFailure } from "../utils/helpers.js";
 
 export const test = base.extend({
@@ -29,6 +30,11 @@ export const test = base.extend({
     const htmlPage = new HTMLPlaygroundAPIMockPage(page);
     await use(htmlPage);
     await attachScreenshotOnFailure(page, testInfo);
+  },
+
+  apiService: async ({ request }, use) => {
+    const apiService = new APIUserService(request);
+    await use(apiService);
   },
 });
 
