@@ -11,18 +11,18 @@ Each suite ensures **user experience, backend reliability, and frontend consiste
 
 | **Module** | **Spec File** | **Focus Area** |
 |-------------|----------------|----------------|
-| **Login Page** | `TS1-Login.spec.js` | Authentication flow and form validation |
-| **Landing Page** | `TS1-Landing.spec.js` | Structural and content validation |
-| **Add to List** | `TS1-AddToList.spec.js` | Dynamic list behavior and UI interaction |
-| **API Endpoints** | `TS1-APIendpoints.spec.js` | CRUD operations and error handling |
-| **HTML Playground** | `TS1-HTMLPlayground.spec.js` | Live HTML editing and iframe rendering |
-| **HTML Playground API Mock** | `TS1-HTMLPlaygroundAPImock.spec.js` | Mocked API data loading and iframe population |
+| **Login Page** | `Login.spec.js` | Authentication flow and form validation |
+| **Landing Page** | `Landing.spec.js` | Structural and content validation |
+| **Add to List** | `AddToList.spec.js` | Dynamic list behavior and UI interaction |
+| **API Endpoints** | `APIendpoints.spec.js` | CRUD operations and error handling |
+| **HTML Playground** | `HTMLPlayground.spec.js` | Live HTML editing and iframe rendering |
+| **HTML Playground API Mock** | `HTMLPlaygroundAPImock.spec.js` | Mocked API data loading and iframe population |
 
 ---
 
 ##  Functional Coverage Summary
 
-### 1. **Login Page (`TS1-Login.spec.js`)**
+### 1. **Login Page (`Login.spec.js`)**
 
 Verifies login form elements, validation messages, authentication logic, and post-login redirects.
 
@@ -39,7 +39,7 @@ Verifies login form elements, validation messages, authentication logic, and pos
 
 ---
 
-### 2. **Landing Page (`TS1-Landing.spec.js`)**
+### 2. **Landing Page (`Landing.spec.js`)**
 
 Ensures all visible and hidden sections render correctly and external resources are linked properly.
 
@@ -55,7 +55,7 @@ DOM structure checks, text assertions, CSS validation, list count verification, 
 
 ---
 
-### 3. **Add to List Feature (`TS1-AddToList.spec.js`)**
+### 3. **Add to List Feature (`AddToList.spec.js`)**
 
 Tests the dynamic behavior of the list feature, ensuring user input validation and list updates.
 
@@ -72,7 +72,7 @@ Form interaction (`fill`, `click`), conditional assertions, sequential user acti
 
 ---
 
-### 4. **API Endpoints (`TS1-APIendpoints.spec.js`)**
+### 4. **API Endpoints (`APIendpoints.spec.js`)**
 
 Validates backend CRUD operations, API structure, response codes, and error handling.
 
@@ -90,7 +90,7 @@ Validates backend CRUD operations, API structure, response codes, and error hand
 
 ---
 
-### 5. **HTML Playground (`TS1-HTMLPlayground.spec.js`)**
+### 5. **HTML Playground (`HTMLPlayground.spec.js`)**
 
 Tests the in-browser HTML editor that renders user HTML input live in an iframe preview.
 
@@ -108,7 +108,7 @@ Tests the in-browser HTML editor that renders user HTML input live in an iframe 
 
 ---
 
-### 6. **HTML Playground with API Mock (`TS1-HTMLPlaygroundAPImock.spec.js`)**
+### 6. **HTML Playground with API Mock (`HTMLPlaygroundAPImock.spec.js`)**
 
 Combines frontend interaction with mock API data to verify dynamic iframe content rendering.
 
@@ -152,6 +152,7 @@ This consolidated suite serves as a **full-stack validation system**, supporting
 
 ##  Repository Layout
 
+```plaintext
 /
 └── server.js
 
