@@ -1,4 +1,5 @@
-#  Application Test Suite - Consolidated Synopsis
+
+#  Application Test Suite - Synopsis
 
 This document provides an integrated overview of all **Playwright-based automated test suites** for the application.  
 The tests validate the end-to-end functionality across login flow, UI components, API endpoints, list management, and interactive HTML playgrounds with mock API data.
