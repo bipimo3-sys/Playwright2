@@ -163,7 +163,7 @@ This consolidated suite serves as a **full-stack validation system**, supporting
 /.github/workflows/
 └── playwright.yml
 
-/ProjectTestsuite2/
+/ProjectTestsuite2/         <- (test suite)
 ├── Login.spec.js
 ├── Landing.spec.js
 ├── AddToList.spec.js
@@ -187,3 +187,10 @@ This consolidated suite serves as a **full-stack validation system**, supporting
 
 /utils/
 └── helpers.js
+
+/ProjectTSApp/          <- (application)
+├── TS1_Login.html
+├── index.html
+├── TS1_AddToList.html
+├── TS1_HTMLPlayground.html
+└── TS1_HTMLPlaygroundAPImock.html
