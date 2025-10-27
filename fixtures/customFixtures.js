@@ -5,6 +5,7 @@ import { LandingPage } from "../pages/LandingPage.js";
 import { HTMLPlaygroundPage } from "../pages/HTMLPlaygroundPage.js";
 import { HTMLPlaygroundAPIMockPage } from "../pages/HTMLPlaygroundAPIMockPage.js";
 import { APIUserService } from "../pages/APIUserService.js";
+import { AddToListPage } from "../pages/AddToListPage.js";
 import { attachScreenshotOnFailure } from "../utils/helpers.js";
 
 export const test = base.extend({
@@ -35,6 +36,11 @@ export const test = base.extend({
   apiService: async ({ request }, use) => {
     const apiService = new APIUserService(request);
     await use(apiService);
+  },
+
+  addToListPage: async ({ page }, use) => {
+    const addToList = new AddToListPage(page);
+    await use(addToList);
   },
 });
 
