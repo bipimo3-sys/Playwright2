@@ -5,7 +5,7 @@ It ensures that all major sections, external files, and UI elements render as ex
 
 ## Coverage
 
-1. **Page Load & Title**: Confirms correct title (`Resume – Bipi`) after full page load.  
+1. **Page Load & Title**: Confirms correct title (`Resume - Bipi`) after full page load.  
 2. **Header Section**: Validates name and contact information formatting.  
 3. **Profile Section**: Checks visibility and correct descriptive text.  
 4. **Skills Section**: Verifies list items and expected skill values.  

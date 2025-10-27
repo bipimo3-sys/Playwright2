@@ -1,4 +1,4 @@
-#  Application Test Suite – Consolidated Synopsis
+#  Application Test Suite - Consolidated Synopsis
 
 This document provides an integrated overview of all **Playwright-based automated test suites** for the application.  
 The tests validate the end-to-end functionality across login flow, UI components, API endpoints, list management, and interactive HTML playgrounds with mock API data.
@@ -44,7 +44,7 @@ Verifies login form elements, validation messages, authentication logic, and pos
 Ensures all visible and hidden sections render correctly and external resources are linked properly.
 
 **Key Coverage:**
-- Title verification: `Resume – Bipi`  
+- Title verification: `Resume - Bipi`  
 - Header, Profile, Skills, and Project sections  
 - Hidden sections: *Experience*, *Education*  
 - Linked assets (`styles.css`, `script.js`)  
@@ -77,13 +77,13 @@ Form interaction (`fill`, `click`), conditional assertions, sequential user acti
 Validates backend CRUD operations, API structure, response codes, and error handling.
 
 **Key Coverage:**
-- `GET /api/users` – Verify structure and status  
-- `GET /api/users/:id` – Valid and invalid user lookups  
-- `POST /api/users` – Valid and invalid payloads  
-- `PUT /api/users/:id` – Update and not-found cases  
-- `DELETE /api/users/:id` – Deletion confirmation  
-- `GET /api/delay` – Response time testing  
-- `GET /api/error` – Server error handling  
+- `GET /api/users` - Verify structure and status  
+- `GET /api/users/:id` - Valid and invalid user lookups  
+- `POST /api/users` - Valid and invalid payloads  
+- `PUT /api/users/:id` - Update and not-found cases  
+- `DELETE /api/users/:id` - Deletion confirmation  
+- `GET /api/delay` - Response time testing  
+- `GET /api/error` - Server error handling  
 
 **Techniques:**  
 `request.get/post/put/delete`, JSON schema assertions, response timing, error response validation.
@@ -141,10 +141,10 @@ Combines frontend interaction with mock API data to verify dynamic iframe conten
 
 To provide a **comprehensive quality assurance framework** ensuring:
 
--  **Frontend integrity** – visual/UI accuracy and responsiveness  
--  **Backend reliability** – consistent API performance and structure  
--  **Feature cohesion** – smooth interaction between independent modules  
--  **Regression protection** – automated detection of functional breaks  
+-  **Frontend integrity** - visual/UI accuracy and responsiveness  
+-  **Backend reliability** - consistent API performance and structure  
+-  **Feature cohesion** - smooth interaction between independent modules  
+-  **Regression protection** - automated detection of functional breaks  
 
 This consolidated suite serves as a **full-stack validation system**, supporting rapid development, CI/CD integration, and long-term maintainability.
 
@@ -170,7 +170,7 @@ This consolidated suite serves as a **full-stack validation system**, supporting
 └── HTMLPlaygroundAPImock.spec.js
 
 /docs/
-└── 00-Test-Suite-Synopsis.md   ← (this file)
+└── 00-Test-Suite-Synopsis.md   <- (this file)
 
 /pages/
 ├── LoginPage.js

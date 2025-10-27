@@ -79,7 +79,7 @@ export class LandingPage {
     const count = await this.projectItems.count();
     expect(count).toBe(2);
 
-    const expected = ["Domino App 1 – Business workflow app.", "Domino App 2 – Business workflow app."];
+    const expected = ["Domino App 1 - Business workflow app.", "Domino App 2 - Business workflow app."];
 
     for (let i = 0; i < count; i++) {
       const text = await this.projectItems.nth(i).innerText();
