@@ -50,6 +50,23 @@ test.describe.parallel("Login Page Tests (POM + Fixture)", () => {
     await loginPage.expectMessage("Login successful!");
   });
 
+  const users = [
+    //{ name: "admin", password: "password", expected: "Login successful!" },
+    { name: "Alice", password: "alice123", expected: "Login successful!" },
+    { name: "Bob", password: "bob123", expected: "Login successful!" },
+    { name: "Charlie", password: "charlie123", expected: "Login successful!" },
+  ];
+
+  users.forEach(({ name, password, expected }) => {
+    test(`login-page-correctUnamePass - ${name}`, async ({ loginPage }) => {
+      await loginPage.goto();
+      await loginPage.enterUsername(name);
+      await loginPage.enterPassword(password);
+      await loginPage.clickLogin();
+      await loginPage.expectMessage(expected);
+    });
+  });
+
   test("login-page-8unameCaseSensitivity", async ({ loginPage }) => {
     await loginPage.goto();
     await loginPage.enterUsername(process.env.TS1_USERNAME.toUpperCase());
