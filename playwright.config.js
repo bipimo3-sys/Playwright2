@@ -24,6 +24,7 @@ export default defineConfig({
     {
       name: "TS2 - POM and customFixtures",
       testDir: "./ProjectTestsuite2",
+      dependencies: ["setup"], // ensures setup runs first
       use: {
         ...devices["Desktop Chrome"],
         storageState: "ProjectTestsuite2/storageState.json",

@@ -65,9 +65,7 @@
     </style>
   </head>
   <body>
-    <button id="logoutBtn" style="position: fixed; top: 10px; right: 10px">
-      Logout
-    </button>
+    <button id="logoutBtn" style="position: fixed; top: 10px; right: 10px">Logout</button>
     <div class="container">
       <h2>Add To List</h2>
       <input type="text" id="itemInput" placeholder="Enter an item" />
@@ -99,19 +97,17 @@
         input.focus();
       });
 
-      document
-        .getElementById("logoutBtn")
-        .addEventListener("click", async () => {
-          try {
-            const res = await fetch("/api/logout", { method: "POST" });
-            const data = await res.json();
-            console.log(data.message);
-            // Redirect to login page after logout
-            window.location.href = "/ProjectTSApp/TS1_Login.html";
-          } catch (err) {
-            console.error("Logout error:", err);
-          }
-        });
+      document.getElementById("logoutBtn").addEventListener("click", async () => {
+        try {
+          const res = await fetch("/api/logout", { method: "POST" });
+          const data = await res.json();
+          console.log(data.message);
+          // Redirect to login page after logout
+          window.location.href = "/ProjectTSApp/TS1_Login.html";
+        } catch (err) {
+          console.error("Logout error:", err);
+        }
+      });
     </script>
   </body>
 </html>
