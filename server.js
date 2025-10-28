@@ -1,10 +1,19 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import session from "express-session";
 
 const app = express();
 const port = 3000;
 app.use(express.json());
+app.use(
+  session({
+    secret: "mySecretKey123", // change to something secure
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 60 * 60 * 1000 }, // 1 hour
+  })
+);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,8 +22,6 @@ app.use((req, res, next) => {
   console.log(`[${req.method}] ${req.url}`);
   next();
 });
-
-
 
 // -----------------------------
 // Existing user list (public info, no passwords)
@@ -29,7 +36,6 @@ const userPasswords = {
   Bob: "bob123",
   Charlie: "charlie123",
 };
-
 
 app.get("/api/users", (req, res) => {
   res.json({ users });
@@ -64,21 +70,47 @@ app.delete("/api/users/:id", (req, res) => {
 });
 
 // -----------------------------
-// New: login endpoint 
+// New: login endpoint
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
-    return res.status(400).json({ error: "Username and password are required" });
+    return res
+      .status(400)
+      .json({ error: "Username and password are required" });
   }
 
-  // Validate against the stored passwords
   const storedPassword = userPasswords[username];
   if (storedPassword && storedPassword === password) {
-    return res.json({ message: "Login successful" });
+    // Store login info in session
+    req.session.user = username;
+    return res.json({ message: "Login successful", user: username });
   }
 
   return res.status(401).json({ error: "Invalid credentials" });
+});
+
+app.get("/api/check-auth", (req, res) => {
+  if (req.session.user) {
+    return res.json({ authenticated: true, user: req.session.user });
+  }
+  res.status(401).json({ authenticated: false });
+});
+
+// -----------------------------
+// 🔹 Logout endpoint
+app.post("/api/logout", (req, res) => {
+  if (req.session) {
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ error: "Logout failed" });
+      }
+      res.clearCookie("connect.sid"); // default cookie name
+      return res.json({ message: "Logged out successfully" });
+    });
+  } else {
+    res.json({ message: "No active session" });
+  }
 });
 
 // -----------------------------
@@ -98,6 +130,15 @@ app.get("/api/search", (req, res) => {
     u.name.toLowerCase().includes(name.toLowerCase())
   );
   res.json({ users: result });
+});
+
+// Block HTML pages if not logged in (except login page)
+app.use("/ProjectTSApp", (req, res, next) => {
+  const isLoginPage = req.path === "/TS1_Login.html";
+  if (isLoginPage || req.session.user) {
+    return next();
+  }
+  return res.redirect("/ProjectTSApp/TS1_Login.html");
 });
 
 app.use("/ProjectTSApp", express.static(path.join(__dirname, "ProjectTSApp")));

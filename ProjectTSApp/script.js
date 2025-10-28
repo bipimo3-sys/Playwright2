@@ -1,3 +1,14 @@
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  try {
+    const res = await fetch("/api/logout", { method: "POST" });
+    const data = await res.json();
+    console.log(data.message);
+    // Redirect to login page after logout
+    window.location.href = "/ProjectTSApp/TS1_Login.html";
+  } catch (err) {
+    console.error("Logout error:", err);
+  }
+});
 function login() {
   const username = document.getElementById("name").value.toString();
   const pass = document.getElementById("password").value.toString();
@@ -33,16 +44,15 @@ function completeThis(listitem) {
   listitem.classList.add("li-completed");
 }
 
+/*
 const taskInput = document.getElementById("task");
 taskInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     addTask(taskInput, document.getElementById("tasklist"));
   }
-});
+});*/
 
-const collapsibleHeaders = document.querySelectorAll(
-  ".section .collapsible"
-);
+const collapsibleHeaders = document.querySelectorAll(".section .collapsible");
 
 collapsibleHeaders.forEach((header) => {
   header.addEventListener("click", () => {
